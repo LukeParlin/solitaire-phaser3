@@ -1,37 +1,35 @@
 import Phaser from 'phaser';
+import * as CardConfig from './card_config';
 
-class Demo extends Phaser.Scene {
+class PlaygroundScene extends Phaser.Scene {
    constructor() {
-      super('demo');
+      super('playground');
    }
 
    preload() {
-      this.load.image('logo', 'phaser3-logo.png');
-      this.load.glsl('stars', 'starfields.glsl.js');
+      this.load.bitmapFont(
+         CardConfig.Font.name,
+         CardConfig.Font.image,
+         CardConfig.Font.config
+      );
    }
 
    create() {
-      this.add.shader('RGB Shift Field', 0, 0, 800, 600).setOrigin(0);
-      const logo = this.add.image(400, 200, 'logo');
-
-      this.tweens.add({
-         targets: logo,
-         y: 400,
-         duration: 2500,
-         ease: 'Sine.inOut',
-         yoyo: true,
-         repeat: -1,
-      });
+      //
    }
 }
 
 const config: Phaser.Types.Core.GameConfig = {
    type: Phaser.AUTO,
-   autoCenter: Phaser.Scale.CENTER_BOTH,
-   parent: 'app',
-   width: 800,
-   height: 600,
-   scene: [Demo],
+   scene: [PlaygroundScene],
+   scale: {
+      parent: 'game',
+      width: 960,
+      height: 540,
+      mode: Phaser.Scale.NONE,
+      autoCenter: Phaser.Scale.CENTER_BOTH,
+   },
+   mipmapFilter: 'LINEAR_MIPMAP_NEAREST',
 };
 
 export default new Phaser.Game(config);
