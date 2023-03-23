@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import * as CardConfig from './card_config';
+import { Deck } from './deck';
 
 class PlaygroundScene extends Phaser.Scene {
    constructor() {
@@ -8,14 +9,15 @@ class PlaygroundScene extends Phaser.Scene {
 
    preload() {
       this.load.bitmapFont(
-         CardConfig.Font.name,
-         CardConfig.Font.image,
-         CardConfig.Font.config
+         CardConfig.Font.NAME,
+         CardConfig.Font.IMAGE,
+         CardConfig.Font.CONFIG
       );
    }
 
    create() {
-      //
+      const deck = new Deck(this);
+      deck.Deal();
    }
 }
 

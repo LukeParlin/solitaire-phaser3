@@ -1,3 +1,9 @@
+export const enum Font {
+   NAME = 'cardFont',
+   IMAGE = '/fonts/CardCharacters.png',
+   CONFIG = '/fonts/CardCharacters.xml',
+}
+
 export const enum Size {
    Width_MM = 64, //The width of a standard poker playing card IRL, in mm
    HEIGHT_MM = 89, //The height of a standard poker playing card IRL, in mm
@@ -12,16 +18,34 @@ export const enum Size {
    SUIT_SIZE = 64,
 }
 
-export const enum Suits {
-   SPADES,
-   HEARTS,
-   DIAMONDS,
-   CLUBS,
+//NON CONST enum for reverse mapping
+export enum Suits {
+   Spades,
+   Hearts,
+   Diamonds,
+   Clubs,
+}
+
+//NON CONST enum for reverse mapping
+export enum Values {
+   Ace = 1,
+   Two,
+   Three,
+   Four,
+   Five,
+   Six,
+   Seven,
+   Eight,
+   Nine,
+   Ten,
+   Jack,
+   Queen,
+   King,
 }
 
 export const SuitColors = [0x0, 0xde1318, 0xde1318, 0x0];
-export const SuitChars = ['}', '{', '[', ']', ''];
-export const Chars = [
+export const SuitChars = ['}', '{', '[', ']'];
+export const ValueChars = [
    '',
    'A',
    '2',
@@ -37,9 +61,3 @@ export const Chars = [
    'Q',
    'K',
 ];
-
-export const Font = {
-   name: 'cardFont',
-   image: '/fonts/CardCharacters.png',
-   config: '/fonts/CardCharacters.xml',
-};

@@ -1,4 +1,8 @@
-// import Phaser from 'phaser';
-// import * as CardConfig from './card_config';
+import Phaser from 'phaser';
 
-export class Card {}
+export default interface Card {
+   suit: number;
+   value: number;
+
+   gameObject: Phaser.GameObjects.Image;
+}
